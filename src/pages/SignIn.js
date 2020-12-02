@@ -10,6 +10,7 @@ export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [able, setAble] = useState(false);
+    const [loading, setLoadin] = useState(true);
     const [error, setError] = useState(false);
     return (
         <ContentContainer>
@@ -40,6 +41,7 @@ export default function SignIn() {
                     onClick={() => console.log('ai ai ')}
                     label={'Entrar'}
                     disabled={able}
+                    loading={loading}
                 />
             </form>
             <Text>  

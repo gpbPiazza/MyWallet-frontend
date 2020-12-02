@@ -1,16 +1,23 @@
 import React from 'react';
 
-import { ContentButton } from '../styles/ButtonStyles';
+import { Container, Text } from '../styles/ButtonStyles';
+import Spinner from './Spinner'
 
-function Button({able, label, onClick}) {
+function Button({able, label, onClick, loading}) {
     return (
         <div>
-            <ContentButton 
+            <Container 
                 onClick={onClick}
                 disabled={able}
             >
-                {label}
-            </ContentButton>        
+            {loading ? 
+                <Spinner /> 
+                : 
+                <Text>
+                    {label}
+                </Text>
+            }
+            </Container>        
         </div>
     );
 }
