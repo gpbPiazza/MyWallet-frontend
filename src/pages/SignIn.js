@@ -33,7 +33,7 @@ export default function SignIn() {
                 />
                 {error && 
                     <TextError>
-                        'Wrong email or password'
+                        Wrong email or password
                     </TextError>
                 }
                 <Button 
@@ -44,7 +44,6 @@ export default function SignIn() {
             </form>
             <Text>  
                 <Link to='/signUp'>
-
                     Primeira vez? Cadastre-se!
                 </Link>
             </Text>

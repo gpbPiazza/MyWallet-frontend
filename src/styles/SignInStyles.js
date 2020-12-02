@@ -5,7 +5,7 @@ import Typography from '../config/typography';
 
 export const Title = styled.h1`
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 1rem;
 
     font-family: ${Typography.SairaStencil};
     font-size: 2rem;
@@ -37,17 +37,18 @@ export const TextError = styled.p`
 
     color: ${Colors.darkGrey};
     border-bottom: 1px solid ${Colors.darkGrey};
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
     font-family: ${Typography.Raleway};
     line-height: 1rem;
+
+    margin: 1rem 0;
 
 `;
 
 export const Text = styled(TextError)`
     color: ${Colors.white};
-    font-size: 1rem;
     border-bottom: 0px;
-    font-weight: bold;
 
     margin-top: 1rem;
 `;
