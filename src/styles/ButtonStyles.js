@@ -8,10 +8,7 @@ export const Container = styled.button`
     height: 46px;
    
     border-radius: 0.2rem;
-    
     background-color: ${Colors.lightPurple};
-
-   
 
     cursor: pointer;
 
