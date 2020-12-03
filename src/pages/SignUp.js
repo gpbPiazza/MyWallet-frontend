@@ -11,8 +11,7 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
-    const [disable, setDisable] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [waiting, setWiting] = useState(false);
     const [error, setError] = useState(true);
 
     const onSubmit = async (event) => {
@@ -75,11 +74,11 @@ export default function SignUp() {
                 <Button 
                     onClick={() => onSubmit}
                     label={'Entrar'}
-                    loading={loading}
-                    disabled={disable}
+                    loading={waiting}
+                    disabled={waiting}
                 />
             </form>
-            <Text>  
+            <Text disable={waiting}>  
                 <Link to='/'>
                     Já tem uma conta? Entre agora!
                 </Link>

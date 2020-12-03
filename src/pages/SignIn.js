@@ -23,28 +23,26 @@ export default function SignIn() {
         }
       }, [user]);
 
-    const handleLogIn = async (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
-        const body = {
-            email,
-            password
-        }
+
+        const body = {email,password};
         setWaiting(true);
         const data = await SignInService.signIn(body);
         setWaiting(false);
+
         if(data.success) {
-            setUser({...data.success})
+            setUser({...data.success});
         }else if (data.response.status !== 202){
             setError(true);
             setErrorMessage(data.response.data.error);
+            return;
         }else {
             setError(true);
             setErrorMessage('Please Check you internet conexation');
             return;
         }  
     };
-
-
 
     return (
         <ContentContainer>
@@ -74,7 +72,7 @@ export default function SignIn() {
                     </TextError>
                 }
                 <Button 
-                    onClick={(event) => handleLogIn(event)}
+                    onClick={(event) => onSubmit(event)}
                     label={'Entrar'}
                     disabled={waiting}
                     loading={waiting}
