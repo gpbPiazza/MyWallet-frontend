@@ -1,6 +1,6 @@
 # Projeto - MyWallet-backend
 <p align="center">
-  <img src="./assets/images/logo.png" width="175" alt="Blogium" />
+  <img src="./public/img/logo.png" width="175" alt="Blogium" />
 </p>
   
 
@@ -39,11 +39,11 @@ The following tools and frameworks were used in the construction of the project:
     
 # Layout Mobile
 
-<img src='./assets/images/logIn.png'><br>
+<img src='./public/img/logIn.png'><br>
 
-<img src='./assets/images/registe.png'><br>
+<img src='./public/img/registe.png'><br>
 
-<img src='./assets/images/historic.png'><br>
+<img src='./public/img/historic.png'><br>
     
 ### Authors
 ---
