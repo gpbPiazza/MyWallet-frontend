@@ -14,8 +14,8 @@ const App = () => {
         <ResetCSS />
         <GlobalStyle />
         <Switch>
-          <Route exact path='/signUp' component={SignUp} />
           <Route exact path='/' component={SignIn} />
+          <Route exact path='/signUp' component={SignUp} />
         </Switch>
       </Router>
     </UserProvider>

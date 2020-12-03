@@ -5,7 +5,6 @@ import Typography from '../config/typography';
 
 export const Title = styled.h1`
     text-align: center;
-    margin-top: 1rem;
 
     font-family: ${Typography.SairaStencil};
     font-size: 2rem;
