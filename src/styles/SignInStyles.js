@@ -51,4 +51,5 @@ export const Text = styled(TextError)`
     border-bottom: 0px;
 
     margin-top: 1rem;
+    pointer-events: ${(props) => props.disable ? 'none' : 'default'};
 `;

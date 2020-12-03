@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ContentInput, Container} from '../styles/InputStyles';
 
-export default function Input({value, type, placeholder, onChange, errorMessage, error}) {
+export default function Input({value, type, placeholder, onChange, onFocus, error}) {
 
     return (
         <Container >
@@ -11,6 +11,7 @@ export default function Input({value, type, placeholder, onChange, errorMessage,
                 value={value}
                 placeholder={placeholder}
                 onChange={onChange}
+                onFocus={onFocus}
                 error={error}
                
             />

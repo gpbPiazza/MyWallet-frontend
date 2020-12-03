@@ -8,7 +8,7 @@ export const ContentInput = styled.input`
 
     border-radius: 0.2rem;
     background-color: ${Colors.white};
-    border: ${(props) => props.error ? `4px solid ${Colors.darkGrey}` : null}; 
+    border: ${(props) => props.error ? `4px solid ${Colors.darkGrey}` : `4px solid ${Colors.white}`}; 
 
     color: ${Colors.black};
     font-size: 1.25rem;

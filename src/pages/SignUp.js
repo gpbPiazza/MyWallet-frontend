@@ -11,8 +11,28 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
-    const [able, setAble] = useState(false);
+    const [disable, setDisable] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(true);
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const body = {
+            email,
+            password
+        }
+        setDisable(true)
+        setLoading(true)
+        const data = await SignInService.signIn(body)
+        console.log(data, 'O QUE ESTÁ VINDO DE SERVICE')
+        setDisable(false)
+        setLoading(false)
+       
+    };
+
+
+
+
     return (
         <ContentContainer>
             <Title>
@@ -53,9 +73,10 @@ export default function SignUp() {
                     </TextError>
                 }
                 <Button 
-                    onClick={() => console.log('ai ai ')}
+                    onClick={() => onSubmit}
                     label={'Entrar'}
-                    disabled={able}
+                    loading={loading}
+                    disabled={disable}
                 />
             </form>
             <Text>  
