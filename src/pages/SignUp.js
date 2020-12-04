@@ -27,8 +27,7 @@ export default function SignUp() {
       }, [user]);
 
     const onSubmit = async (event) => {
-        event.preventDefault();
-
+        event.preventDefault()      
         const bodySingUp = {
             username,
             email,
@@ -38,19 +37,17 @@ export default function SignUp() {
         const bodySingIn = {
             email,
             password,
-        };
-
+        }       
         setWaiting(true);
         const data = await SignUpService.signUp(bodySingUp);
-        setWaiting(false);
-
-        if(data.success) {
+        setWaiting(false)       
+        if (data.success) {
             signIn(bodySingIn)
-        }else if (data.response.status !== 201){
+        } else if (data.response.status !== 201){
             setError(true);
             setErrorMessage(data.response.data.error);
             return;
-        }else {
+        } else {
             setError(true);
             setErrorMessage('Please Check you internet conexation');
             return;
@@ -62,9 +59,9 @@ export default function SignUp() {
         const data = await SignInService.signIn(body);
         setWaiting(false);
 
-        if(data.success) {
+        if (data.success) {
             setUser({...data.success});
-        }else {
+        } else {
             setError(true);
             setErrorMessage('Please Check you internet conexation');
             return;
