@@ -12,6 +12,6 @@ export const ContentContainer = styled.main`
 
     background-color: ${Colors.purple};
 
-    padding: 10%;
+    padding: 7%;
 `;
 
