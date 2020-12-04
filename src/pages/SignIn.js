@@ -60,7 +60,7 @@ export default function SignIn() {
                 />
                 <Input 
                     type='password'
-                    placeholder={'Senha'}
+                    placeholder={'Password'}
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     onFocus={() => setError(false)}
@@ -73,14 +73,14 @@ export default function SignIn() {
                 }
                 <Button 
                     onClick={(event) => onSubmit(event)}
-                    label={'Entrar'}
+                    label={'Login'}
                     disabled={waiting}
                     loading={waiting}
                 />
             </form>
             <Text disable={waiting}>  
                 <Link to='/signUp'>
-                    Primeira vez? Cadastre-se!
+                    First time MyWallet? Join us!
                 </Link>
             </Text>
         </ContentContainer>

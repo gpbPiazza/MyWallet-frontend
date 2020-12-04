@@ -9,7 +9,7 @@ export default function Header({ name, onClick }) {
     return (
         <Container >
             <Text>
-                {`Olá, ${name}`}
+                {`Hello, ${name}`}
             </Text>
 
             <IoMdLogOut 

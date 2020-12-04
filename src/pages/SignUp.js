@@ -79,7 +79,7 @@ export default function SignUp() {
             <form>
                 <Input 
                     type='text'
-                    placeholder={'Nome'}
+                    placeholder={'Name'}
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
                     error={error}
@@ -95,7 +95,7 @@ export default function SignUp() {
                 />
                 <Input 
                     type='password'
-                    placeholder={'Senha'}
+                    placeholder={'Password'}
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     error={error}
@@ -103,7 +103,7 @@ export default function SignUp() {
                 />
                   <Input 
                     type='password'
-                    placeholder={'Confrime a senha'}
+                    placeholder={'Confirm password'}
                     value={passwordConfirmation}
                     onChange={(event) => setPasswordConfirmation(event.target.value)}
                     error={error}
@@ -123,7 +123,7 @@ export default function SignUp() {
             </form>
             <Text disable={waiting}>  
                 <Link to='/'>
-                    Já tem uma conta? Entre agora!
+                    Have accounty? Entre agora!
                 </Link>
             </Text>
     </ContentContainer>

@@ -3,12 +3,12 @@ import React from 'react';
 import { Container, Text } from '../styles/ButtonStyles';
 import Spinner from './Spinner'
 
-function Button({able, label, onClick, loading}) {
+function Button({disabled, label, onClick, loading}) {
     return (
         <div>
             <Container 
                 onClick={onClick}
-                disabled={able}
+                disabled={disabled}
             >
             {loading ? 
                 <Spinner /> 
