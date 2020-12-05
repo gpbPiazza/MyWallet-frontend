@@ -1,25 +1,32 @@
 import React from 'react';
-import { IoMdLogOut } from "react-icons/io";
+import { IoIosAddCircleOutline, IoIosRemoveCircleOutline } from 'react-icons/io';
 
-import { Container, Text } from '../../styles/CashButtonStyles';
+import { Container, Text, IconContainer} from '../../styles/CashButtonStyles';
+import Colors from '../../config/colors';
 
-function CashButton({disabled, label, onClick, loading}) {
-    return (
-        <div>
-            <Container 
-                onClick={onClick}
-                disabled={disabled}
-            >
-            <IoMdLogOut 
+function CashButton({disabled, label, onClick, showPlusButton, marginLeft}) {
+    return (       
+        <Container 
+            onClick={onClick}
+            disabled={disabled}
+            marginLeft={marginLeft}
+        >
+            {showPlusButton ? 
+            <IoIosAddCircleOutline 
                 color={Colors.white} 
                 fontSize='1.5rem'
                 cursor='pointer'
             />
+            :
+            <IoIosRemoveCircleOutline 
+                color={Colors.white} 
+                fontSize='1.5rem'
+                cursor='pointer'
+            />}           
             <Text>
                 {label}
             </Text>
-            </Container>        
-        </div>
+        </Container>        
     );
 }
 

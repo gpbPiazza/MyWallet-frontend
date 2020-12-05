@@ -30,6 +30,7 @@ export default function Home() {
 
             <ButtonContainer>  
                 <CashButton 
+                showPlusButton={true}
                 disabled={false}
                 label={'Cash inflow'}
                 onClick={() => console.log('ai ai soma!')}
@@ -37,6 +38,8 @@ export default function Home() {
                 />
 
                 <CashButton  
+                marginLeft={'5%'}
+                showPlusButton={false}
                 disabled={false}
                 label={'Cash outflow'}
                 onClick={() => console.log('ai ai tira!')}
