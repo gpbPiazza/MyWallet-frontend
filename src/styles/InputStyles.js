@@ -12,7 +12,7 @@ export const ContentInput = styled.input`
 
     color: ${Colors.black};
     font-size: 1.25rem;
-    font-family: ${Typography.Raleway};
+    font-family: ${Typography.RalewatRaleway};
     line-height: 1.5rem;
 
     margin: 0.3rem 0;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 
-import { useUserContext } from '../context/UserContext';
+import UserContext from '../context/UserContext';
 import { ContentContainer } from '../styles/ContentContainer';
 import { Title, TextError, Text } from '../styles/SignInStyles';
 import Input from '../components/Input';
@@ -9,7 +9,7 @@ import Button from '../components/Button';
 import SignInService from '../service/SignInService';
 
 export default function SignIn() {
-    const { user, setUser } = useUserContext();
+    const { user, setUser } = useContext(UserContext);
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,7 +32,7 @@ export default function SignIn() {
         setWaiting(false);
 
         if(data.success) {
-            setUser({...data.success});
+            setUser(data.success);
         }else if (data.response.status !== 202){
             setError(true);
             setErrorMessage(data.response.data.error);

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 
-import { useUserContext } from '../../context/UserContext';
+import UserContext from '../../context/UserContext';
 import { ContentContainer } from '../../styles/ContentContainer';
 import { TransactionBox, ButtonContainer } from '../../styles/HomeStyles';
 import CashButton from './CashButton';
 import Header from '../../components/Header';
-import Button from '../../components/Button';
 
 export default function Home() {
-    const { user, setUser } = useUserContext();
+    const { user } = useContext(UserContext);
     const history = useHistory();
   
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function Home() {
 
     return (
         <ContentContainer>
-            <Header name={'aai ai zape'} onClick={() => console.log('zip zop')} />
+            <Header name={user.username} onClick={() => console.log('zip zop')} />
 
             <TransactionBox>
                 {/* <Transactions /> */}

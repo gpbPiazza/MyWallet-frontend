@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 
-import { useUserContext } from '../context/UserContext';
+import UserContext from '../context/UserContext';
 import { ContentContainer } from '../styles/ContentContainer';
 import { Title, TextError, Text } from '../styles/SignInStyles';
 import SignUpService from '../service/SignUpService';
@@ -10,7 +10,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 
 export default function SignUp() {
-    const { user, setUser } = useUserContext();
+    const { user, setUser } = useContext(UserContext);
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -60,7 +60,7 @@ export default function SignUp() {
         setWaiting(false);
 
         if (data.success) {
-            setUser({...data.success});
+            setUser(data.success);
         } else {
             setError(true);
             setErrorMessage('Please Check you internet conexation');

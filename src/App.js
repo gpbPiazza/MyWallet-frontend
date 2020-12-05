@@ -15,8 +15,8 @@ const App = () => {
         <ResetCSS />
         <GlobalStyle />
         <Switch>
-          {/* <Route exact path='/' component={SignIn} /> */}
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={SignIn} />
+          <Route exact path='/home' component={Home} />
           <Route exact path='/signUp' component={SignUp} />
         </Switch>
       </Router>

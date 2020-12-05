@@ -38,7 +38,7 @@ export const TextError = styled.p`
     border-bottom: 1px solid ${Colors.darkGrey};
     font-size: 1rem;
     font-weight: bold;
-    font-family: ${Typography.Raleway};
+    font-family: ${Typography.RalewatRaleway};
     line-height: 1rem;
 
     margin: 1rem 0;

@@ -19,6 +19,6 @@ export const Text = styled.p`
     font-size: 1.25rem;
     font-weight: bold;
     color: ${Colors.white};
-    font-family: ${Typography.Raleway};
+    font-family: ${Typography.RalewatRaleway};
     line-height: 1.5rem;
 `;
