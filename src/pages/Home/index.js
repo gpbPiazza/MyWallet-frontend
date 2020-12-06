@@ -1,27 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link, useHistory} from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, Redirect, useHistory} from 'react-router-dom';
 
 import UserContext from '../../context/UserContext';
+import LogOutService from '../../service/LogOutService';
 import { ContentContainer } from '../../styles/ContentContainer';
 import { TransactionBox, ButtonContainer } from '../../styles/HomeStyles';
 import CashButton from './CashButton';
 import Header from '../../components/Header';
 
 export default function Home() {
-    const { user } = useContext(UserContext);
-    const history = useHistory();
+    const { user, toHome, setToHome} = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
   
-    useEffect(() => {
-        if (user) {
-            history.push(`/home`);
+    const logOut = async () => {
+        setLoading(true);
+        const data = await LogOutService.logOut(user.token);
+        setLoading(false);
+        if (data) {
+            setToHome(true); 
+        }else {
+            alert('Something went wrong, we gonna redirect you to log in');
+            setToHome(true);
         }
-      }, [user]);
-
+    };
 
 
     return (
         <ContentContainer>
-            <Header name={user.username} onClick={() => console.log('zip zop')} />
+            {toHome ? <Redirect to='/' /> : null}
+            <Header name={user.username} showLogOut={true} loading={loading} onClick={() => logOut()} />
 
             <TransactionBox>
                 {/* <Transactions /> */}

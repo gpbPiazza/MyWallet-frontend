@@ -5,9 +5,10 @@ export default UserContext;
 
 export function UserProvider(props) {
   const [user, setUser] = useState(null);
+  const [toHome, setToHome] = useState(false);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, setToHome, toHome}}>
       {props.children}
     </UserContext.Provider>
   );

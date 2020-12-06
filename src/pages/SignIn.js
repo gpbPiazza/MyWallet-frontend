@@ -9,8 +9,8 @@ import Button from '../components/Button';
 import SignInService from '../service/SignInService';
 
 export default function SignIn() {
-    const { user, setUser } = useContext(UserContext);
-    const history = useHistory();
+    const { user, setUser, toHome, setToHome} = useContext(UserContext);
+    let history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [waiting, setWaiting] = useState(false);
@@ -18,7 +18,12 @@ export default function SignIn() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
+        if(toHome) {
+            setToHome(false);
+            return setUser(null);
+        }
         if (user) {
+            console.log('está chamando history.push?')
             history.push(`/home`);
         }
       }, [user]);

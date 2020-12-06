@@ -11,6 +11,7 @@ class SignInService {
       return error;
     }
   }
+
 }
 
 export default new SignInService();
