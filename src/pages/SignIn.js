@@ -18,12 +18,10 @@ export default function SignIn() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        if(toHome) {
+        if (toHome) {
             setToHome(false);
             return setUser(null);
-        }
-        if (user) {
-            console.log('está chamando history.push?')
+        } if (user) {
             history.push(`/home`);
         }
       }, [user]);
@@ -36,7 +34,7 @@ export default function SignIn() {
         const data = await SignInService.signIn(body);
         setWaiting(false);
 
-        if(data.success) {
+        if (data.success) {
             setUser(data.success);
         }else if (data.response.status !== 202){
             setError(true);

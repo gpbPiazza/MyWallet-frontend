@@ -7,11 +7,13 @@ import { ContentContainer } from '../../styles/ContentContainer';
 import { TransactionBox, ButtonContainer } from '../../styles/HomeStyles';
 import CashButton from './CashButton';
 import Header from '../../components/Header';
+import Transaction from './Transaction';
+import Balance from './Balance';
 
 export default function Home() {
     const { user, toHome, setToHome} = useContext(UserContext);
     const [loading, setLoading] = useState(false);
-  
+
     const logOut = async () => {
         setLoading(true);
         const data = await LogOutService.logOut(user.token);
@@ -31,7 +33,14 @@ export default function Home() {
             <Header name={user.username} showLogOut={true} loading={loading} onClick={() => logOut()} />
 
             <TransactionBox>
-                {/* <Transactions /> */}
+                <Transaction typeTransaction={true} /> 
+                <Transaction  /> 
+                <Transaction  /> 
+                <Transaction typeTransaction={true} /> 
+                <Transaction typeTransaction={true} /> 
+                <Transaction  /> 
+                <Transaction  /> 
+                <Balance />
             </TransactionBox>
 
             <ButtonContainer>  

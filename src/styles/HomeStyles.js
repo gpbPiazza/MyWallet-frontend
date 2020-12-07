@@ -10,6 +10,7 @@ export const TransactionBox = styled.div`
    border-radius: 0.5rem;
 
    margin-top: 10%;
+   overflow-y: scroll;
 `;
 
 export const ButtonContainer = styled.div`
