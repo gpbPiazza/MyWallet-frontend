@@ -11,6 +11,11 @@ export const TransactionBox = styled.div`
    margin-top: 10%;
    overflow-y: scroll;
 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
    border-top-left-radius: 0.5rem;
    border-top-right-radius: 0.5rem;
 `;

@@ -8,6 +8,7 @@ import { TransactionBox, ButtonContainer } from '../../styles/HomeStyles';
 import CashButton from './CashButton';
 import Header from '../../components/Header';
 import Transaction from './Transaction';
+import Spinner from '../../components/Spinner';
 import Balance from './Balance';
 import AccountService from '../../service/AccountService';
 
@@ -16,7 +17,7 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
     const [transactions, setTransactions] = useState([]);
     const [balance, setBalance] = useState('');
-    const [loadingTransactions, setLoadingTransactions] = useState(false);
+    const [loadingTransactions, setLoadingTransactions] = useState(true);
 
     useEffect(() => {
         getHistoryTransactions();
@@ -64,14 +65,18 @@ export default function Home() {
             {toHome ? <Redirect to='/' /> : null}
             <Header name={user.username} showLogOut={true} loading={loading} onClick={() => logOut()} />
             <TransactionBox>
-                {transactions.map((transaction, index) => 
+                {loadingTransactions ? (
+                    <Spinner transaction={true} />
+                    )
+                    :
+                    (transactions.map((transaction, index) => 
                     <Transaction 
                         key={index}
                         date={transaction.dateTransaction}
                         typeTransaction={transaction.typeTransaction}
                         description={transaction.description}
                         value={transaction.value} 
-                    />)
+                    />))
                 } 
             </TransactionBox>
             <Balance balance={balance}/>
