@@ -15,11 +15,12 @@ export default function Home() {
     const { user, toHome, setToHome} = useContext(UserContext);
     const [loading, setLoading] = useState(false);
     const [transactions, setTransactions] = useState([]);
+    const [balance, setBalance] = useState('');
     const [loadingTransactions, setLoadingTransactions] = useState(false);
 
     useEffect(() => {
         getHistoryTransactions();
-        // getBalance();
+        getBalance();
     }, [])
 
     const getHistoryTransactions = async () => {
@@ -28,6 +29,17 @@ export default function Home() {
         setLoadingTransactions(false);
         if (data) {
             setTransactions(data) 
+        }else {
+            alert('Something went wrong, we gonna redirect you to log in');
+            setToHome(true);
+        }
+    }
+
+    const getBalance = async () => {
+        const data = await AccountService.getBalance(user.token);
+        if (data) {
+            const formatBalance = parseInt(data.balance).toFixed(2)
+            setBalance(formatBalance) 
         }else {
             alert('Something went wrong, we gonna redirect you to log in');
             setToHome(true);
@@ -62,7 +74,7 @@ export default function Home() {
                     />)
                 } 
             </TransactionBox>
-            <Balance balance={'250,90'}/>
+            <Balance balance={balance}/>
 
             <ButtonContainer>  
                 <CashButton 

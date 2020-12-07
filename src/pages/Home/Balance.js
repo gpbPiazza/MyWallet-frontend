@@ -9,7 +9,7 @@ function Balance({ balance }) {
                 Saldo:
             </Text>
             <Value>
-                R$ 2000,20
+                {`R$ ${balance}`}
             </Value>
         </Container>        
     );
