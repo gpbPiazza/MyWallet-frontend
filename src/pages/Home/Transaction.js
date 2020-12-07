@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
+import dayjs from 'dayjs';
 
 import { Container, Date, Description, Value } from '../../styles/TransactionStyles';
 import Colors from '../../config/colors';
 
 function Transaction({date, description, typeTransaction, value }) {
+    const [formatDate, seteFormatDate] = useState('');
+    const [color, setColor] = useState(false);
+
+    useEffect(() => {
+        seteFormatDate(dayjs(date).format('D/MM'))
+        if(typeTransaction === 'deposit'){
+            setColor(true);
+        }
+    }, [])
+
+
+    
     return (       
         <Container >
             <Date>
-                30/11
+                {formatDate}
             </Date>
             <Description>
-                Almoço com a mãe
+                {description}
             </Description>
-            <Value typeTransaction={typeTransaction}>
-                99,99
+            <Value typeTransaction={color}>
+                {value}
             </Value>
         </Container>        
     );

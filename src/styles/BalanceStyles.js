@@ -9,16 +9,14 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-direction: row;
 
-    width: 85%;
-
     background-color: ${Colors.white};
-    border-radius: 0.5rem;
 
     padding: 2% 5%;
 
-    position: fixed;
-    bottom: 10.2rem;
-    left: 1.5rem;
+    width: 100%;
+
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 `;
 
 export const Text = styled.p`

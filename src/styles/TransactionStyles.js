@@ -31,7 +31,7 @@ export const Description = styled(Date)`
     -webkit-line-clamp: 1; 
     -webkit-box-orient: vertical;
 
-    margin: 0 3%;
+    margin: 0 1%;
 `;
 
 export const Value = styled(Date)`

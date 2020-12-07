@@ -7,10 +7,12 @@ export const TransactionBox = styled.div`
    height: 100%;
 
    background-color: ${Colors.white};
-   border-radius: 0.5rem;
 
    margin-top: 10%;
    overflow-y: scroll;
+
+   border-top-left-radius: 0.5rem;
+   border-top-right-radius: 0.5rem;
 `;
 
 export const ButtonContainer = styled.div`

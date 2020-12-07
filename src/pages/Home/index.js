@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect, useHistory} from 'react-router-dom';
 
 import UserContext from '../../context/UserContext';
@@ -9,10 +9,30 @@ import CashButton from './CashButton';
 import Header from '../../components/Header';
 import Transaction from './Transaction';
 import Balance from './Balance';
+import AccountService from '../../service/AccountService';
 
 export default function Home() {
     const { user, toHome, setToHome} = useContext(UserContext);
     const [loading, setLoading] = useState(false);
+    const [transactions, setTransactions] = useState([]);
+    const [loadingTransactions, setLoadingTransactions] = useState(false);
+
+    useEffect(() => {
+        getHistoryTransactions();
+        // getBalance();
+    }, [])
+
+    const getHistoryTransactions = async () => {
+        setLoadingTransactions(true);
+        const data = await AccountService.getTransactions(user.token, user.id);
+        setLoadingTransactions(false);
+        if (data) {
+            setTransactions(data) 
+        }else {
+            alert('Something went wrong, we gonna redirect you to log in');
+            setToHome(true);
+        }
+    }
 
     const logOut = async () => {
         setLoading(true);
@@ -31,17 +51,18 @@ export default function Home() {
         <ContentContainer>
             {toHome ? <Redirect to='/' /> : null}
             <Header name={user.username} showLogOut={true} loading={loading} onClick={() => logOut()} />
-
             <TransactionBox>
-                <Transaction typeTransaction={true} /> 
-                <Transaction  /> 
-                <Transaction  /> 
-                <Transaction typeTransaction={true} /> 
-                <Transaction typeTransaction={true} /> 
-                <Transaction  /> 
-                <Transaction  /> 
-                <Balance />
+                {transactions.map((transaction, index) => 
+                    <Transaction 
+                        key={index}
+                        date={transaction.dateTransaction}
+                        typeTransaction={transaction.typeTransaction}
+                        description={transaction.description}
+                        value={transaction.value} 
+                    />)
+                } 
             </TransactionBox>
+            <Balance balance={'250,90'}/>
 
             <ButtonContainer>  
                 <CashButton 
