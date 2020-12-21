@@ -1,28 +1,50 @@
 {
+  "name": "my-wallet",
+  "version": "0.1.0",
   "scripts": {
-    "start": "webpack serve"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/preset-env": "^7.12.7",
-    "@babel/preset-react": "^7.12.7",
-    "@babel/runtime": "^7.12.5",
+    "@ant-design/icons": "^4.3.0",
     "ant-design": "^1.0.0",
     "antd": "^4.9.1",
     "axios": "^0.21.0",
-    "babel-loader": "^8.2.2",
     "dayjs": "^1.9.7",
     "react": "^17.0.1",
-    "react-debounce-input": "^3.2.3",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
+    "react-modal": "^3.12.1",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
     "styled-components": "^5.2.0",
-    "webpack": "^5.2.0",
-    "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.11.0"
+    "web-vitals": "^1.0.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.12.1"
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-react": "^7.21.5",
+    "prettier": "^2.2.1"
   }
 }

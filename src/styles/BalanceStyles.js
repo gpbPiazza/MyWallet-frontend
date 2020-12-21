@@ -1,35 +1,35 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Colors from '../config/colors';
-import Typography from '../config/typography';
+import Colors from "../config/colors";
+import Typography from "../config/typography";
 
 export const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 
-    background-color: ${Colors.white};
+  background-color: ${Colors.white};
 
-    padding: 2% 5%;
+  padding: 2% 5%;
 
-    width: 100%;
+  width: 100%;
 
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 `;
 
 export const Text = styled.p`
-    font-family: ${Typography.RalewatRaleway};
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1.2rem;
+  font-family: ${Typography.RalewatRaleway};
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
 
-    color: ${Colors.black};
+  color: ${Colors.black};
 `;
 
 export const Value = styled(Text)`
-    font-weight: normal;
+  font-weight: normal;
 
-    color: ${Colors.green};
+  color: ${Colors.green};
 `;

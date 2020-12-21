@@ -1,17 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Colors from '../config/colors'
+import Colors from "../config/colors";
 
-export const ContentContainer = styled.main`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+const ContentContainer = styled.main`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 
-    background-color: ${Colors.purple};
+  background-color: ${Colors.purple};
 
-    padding: 7%;
+  padding: 7%;
 `;
 
+export default ContentContainer;

@@ -1,26 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import { Container, Text } from '../styles/ButtonStyles';
-import Spinner from './Spinner';
+import { Container, Text } from "../styles/ButtonStyles";
+import Spinner from "./Spinner";
 
-function Button({
-  disabled, label, onClick, loading,
-}) {
+function Button({ disabled, label, onClick, loading }) {
   return (
-    <div>
-      <Container
-        onClick={onClick}
-        disabled={disabled}
-      >
-        {loading
-          ? <Spinner />
-          : (
-            <Text>
-              {label}
-            </Text>
-          )}
-      </Container>
-    </div>
+    <Container onClick={onClick} disabled={disabled}>
+      {loading ? <Spinner /> : <Text>{label}</Text>}
+    </Container>
   );
 }
 

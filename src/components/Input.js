@@ -1,9 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { ContentInput, Container } from '../styles/InputStyles';
+import { ContentInput, Container } from "../styles/InputStyles";
 
 export default function Input({
-  value, type, placeholder, onChange, onFocus, error,
+  value,
+  type,
+  placeholder,
+  onChange,
+  onFocus,
+  error,
 }) {
   return (
     <Container>

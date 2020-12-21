@@ -1,40 +1,42 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Colors from '../config/colors';
-import Typography from '../config/typography';
+import Colors from "../config/colors";
+import Typography from "../config/typography";
 
 export const Container = styled.li`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 
-    width: 100%;
+  width: 100%;
 
-    padding: 2% 5%;
+  padding: 2% 5%;
 `;
 
 export const Date = styled.p`
-    font-family: ${Typography.RalewatRaleway};
-    font-size: 1rem;
-    line-height: 1.2rem;
+  font-family: ${Typography.RalewatRaleway};
+  font-size: 1rem;
+  line-height: 1.2rem;
 
-    color: ${Colors.grey};
+  color: ${Colors.grey};
+
+  margin-right: 3%;
 `;
 
 export const Description = styled(Date)`
-    color: ${Colors.black};
-    overflow: hidden;
-    text-overflow: ellipsis;
+  color: ${Colors.black};
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-    display: -webkit-box;
-    -webkit-line-clamp: 1; 
-    -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 
-    margin: 0 1%;
+  margin-right: auto;
 `;
 
 export const Value = styled(Date)`
-    color: ${(props) => props.typeTransaction ? Colors.green : Colors.red};
+  color: ${(props) => (props.typeTransaction ? Colors.green : Colors.red)};
+  margin-right: 0;
 `;
-
