@@ -1,4 +1,4 @@
-# Projeto - MyWallet-FrontEnd
+# Project - MyWallet-FrontEnd
 <p align="center">
   <img src="./public/img/logo.png" width="175" alt="Blogium" />
 </p>
@@ -13,6 +13,7 @@
 - [x] 'Register user'<br>
 - [x] 'Log in'<br>
 - [x] 'Show transaction'<br>
+- [x] 'Log out'<br>
 - [x] 'Add and Remove balance'<br>
 
 ### Tech Stack
