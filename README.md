@@ -13,6 +13,7 @@
 - [x] 'Register user'<br>
 - [x] 'Log in'<br>
 - [x] 'Show transaction'<br>
+- [x] 'Log out'<br>
 - [x] 'Add and Remove balance'<br>
 
 ### Tech Stack
