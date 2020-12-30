@@ -29,7 +29,7 @@ export default function Home() {
       setTransactions(data);
     } else {
       alert("Something went wrong, we gonna redirect you to log in");
-      setToHome(true);
+      // setToHome(true);
     }
   };
 
@@ -40,7 +40,7 @@ export default function Home() {
       setBalance(formatBalance);
     } else {
       alert("Something went wrong, we gonna redirect you to log in");
-      setToHome(true);
+      // setToHome(true);
     }
   };
 

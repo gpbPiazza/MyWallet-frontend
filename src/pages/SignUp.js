@@ -1,16 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import UserContext from "../context/UserContext";
 import ContentContainer from "../styles/ContentContainer";
-import { Title, TextError, Text } from "../styles/SignInStyles";
+import { Title, TextError, Text, Forms } from "../styles/SignInStyles";
 import SignUpService from "../service/SignUpService";
-import SignInService from "../service/SignInService";
 import Button from "../components/Button";
 import Input from "../components/Input";
 
 export default function SignUp() {
-  const { user, setUser } = useContext(UserContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,25 +17,6 @@ export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState("");
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      history.push(`/home`);
-    }
-  }, [user]);
-
-  const signIn = async (body) => {
-    setWaiting(true);
-    const data = await SignInService.signIn(body);
-    setWaiting(false);
-
-    if (data.success) {
-      setUser(data.success);
-    } else {
-      setError(true);
-      setErrorMessage("Please Check you internet conexation");
-    }
-  };
-
   const onSubmit = async (event) => {
     event.preventDefault();
     const bodySingUp = {
@@ -47,15 +25,11 @@ export default function SignUp() {
       password,
       passwordConfirmation,
     };
-    const bodySingIn = {
-      email,
-      password,
-    };
     setWaiting(true);
     const data = await SignUpService.signUp(bodySingUp);
     setWaiting(false);
     if (data.success) {
-      signIn(bodySingIn);
+      history.push(`/`);
     } else if (data.response.status !== 201) {
       setError(true);
       setErrorMessage(data.response.data.error);
@@ -68,7 +42,7 @@ export default function SignUp() {
   return (
     <ContentContainer>
       <Title>MyWallet</Title>
-      <form>
+      <Forms>
         <Input
           type="text"
           placeholder="Name"
@@ -108,9 +82,9 @@ export default function SignUp() {
           loading={waiting}
           disabled={waiting}
         />
-      </form>
+      </Forms>
       <Text disable={waiting}>
-        <Link to="/">Have accounty? Entre agora!</Link>
+        <Link to="/">Have account? Log-in!</Link>
       </Text>
     </ContentContainer>
   );

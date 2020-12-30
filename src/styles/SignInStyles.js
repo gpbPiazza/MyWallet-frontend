@@ -49,3 +49,7 @@ export const Text = styled(TextError)`
   margin-top: 1rem;
   pointer-events: ${(props) => (props.disable ? "none" : "default")};
 `;
+
+export const Forms = styled.form`
+  width: 100%;
+`;
