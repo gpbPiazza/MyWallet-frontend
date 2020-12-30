@@ -1,4 +1,4 @@
-# Projeto - MyWallet-FrontEnd
+# Project - MyWallet-FrontEnd
 <p align="center">
   <img src="./public/img/logo.png" width="175" alt="Blogium" />
 </p>
