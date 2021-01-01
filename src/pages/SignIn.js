@@ -7,7 +7,6 @@ import { Title, TextError, Text } from "../styles/SignInStyles";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import SignInService from "../service/SignInService";
-import AccountService from "../service/AccountService";
 
 export default function SignIn() {
   const { user, setUser, toHome, setToHome } = useContext(UserContext);
@@ -38,8 +37,6 @@ export default function SignIn() {
     setWaiting(false);
 
     if (data.success) {
-      console.log(data.success);
-      await AccountService.createAccount(data.success.token);
       setUser(data.success);
     } else if (data.response.status !== 202) {
       setError(true);

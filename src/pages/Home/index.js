@@ -12,6 +12,7 @@ import Transaction from "./Transaction";
 import Spinner from "../../components/Spinner";
 import Balance from "./Balance";
 import AccountService from "../../service/AccountService";
+import { TextError } from "../../styles/SignInStyles";
 
 export default function Home() {
   const { user, toHome, setToHome } = useContext(UserContext);
@@ -19,7 +20,10 @@ export default function Home() {
   const history = useHistory();
   const [transactions, setTransactions] = useState([]);
   const [balance, setBalance] = useState("");
-  const [loadingTransactions, setLoadingTransactions] = useState(true);
+  const [loadingTransactions, setLoadingTransactions] = useState(false);
+  const [cashButtonsDisabled, setCashButtonsDisabled] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState(false);
 
   const getHistoryTransactions = async () => {
     setLoadingTransactions(true);
@@ -28,8 +32,11 @@ export default function Home() {
     if (data) {
       setTransactions(data);
     } else {
-      alert("Something went wrong, we gonna redirect you to log in");
-      // setToHome(true);
+      setCashButtonsDisabled(true);
+      setError(true);
+      setErrorMessage(
+        "Something went wrong, please, we suggest you to log-out!"
+      );
     }
   };
 
@@ -38,9 +45,6 @@ export default function Home() {
     if (data) {
       const formatBalance = parseInt(data.balance, 10).toFixed(2);
       setBalance(formatBalance);
-    } else {
-      alert("Something went wrong, we gonna redirect you to log in");
-      // setToHome(true);
     }
   };
 
@@ -56,13 +60,13 @@ export default function Home() {
     if (data) {
       setToHome(true);
     } else {
-      alert("Something went wrong, we gonna redirect you to log in");
       setToHome(true);
     }
   };
 
   return (
     <ContentContainer>
+      {error && <TextError>{errorMessage}</TextError>}
       {toHome ? <Redirect to="/" /> : null}
       <Header
         name={user.username}
@@ -90,7 +94,7 @@ export default function Home() {
       <ButtonContainer>
         <CashButton
           showPlusButton
-          disabled={false}
+          disabled={cashButtonsDisabled}
           label="Cash inflow"
           onClick={() => history.push(`/upDateCash/deposit`)}
           loading={false}
@@ -99,7 +103,7 @@ export default function Home() {
         <CashButton
           marginLeft="5%"
           showPlusButton={false}
-          disabled={false}
+          disabled={cashButtonsDisabled}
           label="Cash outflow"
           onClick={() => history.push(`/upDateCash/withdrawal`)}
           loading={false}

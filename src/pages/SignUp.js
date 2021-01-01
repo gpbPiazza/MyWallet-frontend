@@ -78,7 +78,7 @@ export default function SignUp() {
         {error && <TextError>{errorMessage}</TextError>}
         <Button
           onClick={(event) => onSubmit(event)}
-          label="Entrar"
+          label="Submit"
           loading={waiting}
           disabled={waiting}
         />

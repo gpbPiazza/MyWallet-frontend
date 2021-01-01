@@ -12,7 +12,7 @@ export const TransactionBox = styled.div`
   overflow-y: scroll;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 
