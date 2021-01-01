@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "../config/colors";
+import { MEDIA } from "../config/constants";
 import Typography from "../config/typography";
 
 export const Container = styled.li`
@@ -12,6 +13,10 @@ export const Container = styled.li`
   width: 100%;
 
   padding: 2% 5%;
+
+  ${MEDIA} {
+    padding: 1% 2%;
+  }
 `;
 
 export const Date = styled.p`
@@ -22,6 +27,10 @@ export const Date = styled.p`
   color: ${Colors.grey};
 
   margin-right: 3%;
+
+  ${MEDIA} {
+    margin-right: 1%;
+  }
 `;
 
 export const Description = styled(Date)`

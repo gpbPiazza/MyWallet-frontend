@@ -5,11 +5,18 @@ import Typography from "../config/typography";
 import { Text } from "./HeaderStyles";
 
 export const Title = styled(Text)`
-  margin-right: auto;
   margin-bottom: 2rem;
+
+  margin-left: 1rem;
 `;
 
-export const Continaer = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`;
 
 export const DescriptionArea = styled.textarea`
   width: 100%;

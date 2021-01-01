@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "../config/colors";
+import { MEDIA } from "../config/constants";
 import Typography from "../config/typography";
 
 export const Container = styled.button`
@@ -19,6 +20,18 @@ export const Container = styled.button`
 
   padding: 3.5%;
   margin-left: ${(props) => props.marginLeft};
+
+  ${MEDIA} {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 10%;
+    height: 100px;
+
+    padding: 1.5%;
+  }
 `;
 
 export const Text = styled.p`
@@ -29,6 +42,10 @@ export const Text = styled.p`
   color: ${Colors.white};
   font-family: ${Typography.RalewatRaleway};
   line-height: 1.25rem;
+
+  ${MEDIA} {
+    margin-left: 5%;
+  }
 `;
 
 export const IconContainer = styled.div`

@@ -1,17 +1,20 @@
 import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
+import { IoMdArrowRoundBack } from "react-icons/io";
 import UserContext from "../context/UserContext";
 import ContentContainer from "../styles/ContentContainer";
 import AccountService from "../service/AccountService";
 import Button from "../components/Button";
 import Input from "../components/Input";
-import { Title, DescriptionArea } from "../styles/UpDateCashStyles";
+import { Title, DescriptionArea, Container } from "../styles/UpDateCashStyles";
 import { Forms } from "../styles/SignInStyles";
 import ModalSuccess from "../components/ModalSuccess";
+import Colors from "../config/colors";
 
 export default function UpdateCash() {
   const { user } = useContext(UserContext);
+  const history = useHistory();
   const { typeTransaction } = useParams();
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
@@ -36,9 +39,17 @@ export default function UpdateCash() {
 
   return (
     <ContentContainer>
-      <Title>
-        {typeTransaction === "deposit" ? "New deposit" : "New withdrawal"}
-      </Title>
+      <Container>
+        <IoMdArrowRoundBack
+          color={Colors.white}
+          fontSize="1.5rem"
+          cursor="pointer"
+          onClick={() => history.push("/home")}
+        />
+        <Title>
+          {typeTransaction === "deposit" ? "New deposit" : "New withdrawal"}
+        </Title>
+      </Container>
       <Forms>
         <Input
           type="number"

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "../config/colors";
+import { MEDIA } from "../config/constants";
 import Typography from "../config/typography";
 
 export const Container = styled.div`
@@ -17,6 +18,9 @@ export const Container = styled.div`
 
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  ${MEDIA} {
+    padding: 1% 2%;
+  }
 `;
 
 export const Text = styled.p`
@@ -25,7 +29,7 @@ export const Text = styled.p`
   font-size: 1.2rem;
   line-height: 1.2rem;
 
-  color: ${Colors.black};
+  color: ${Colors.darkGrey};
 `;
 
 export const Value = styled(Text)`
