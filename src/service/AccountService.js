@@ -14,7 +14,6 @@ class AccountService {
       }
       return null;
     } catch (e) {
-      console.log(e.response.data);
       return null;
     }
   }
@@ -49,7 +48,7 @@ class AccountService {
       return null;
     } catch (e) {
       console.log(e.response.data);
-      return null;
+      return e;
     }
   }
 }

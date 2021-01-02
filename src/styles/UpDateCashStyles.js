@@ -20,7 +20,7 @@ export const Container = styled.div`
 
 export const DescriptionArea = styled.textarea`
   width: 100%;
-  height: 70%;
+  height: 27%;
 
   border-radius: 0.2rem;
   background-color: ${Colors.white};
@@ -31,6 +31,5 @@ export const DescriptionArea = styled.textarea`
 
   margin: 0.3rem 0;
   padding: 1.2rem 1rem;
-
   resize: none;
 `;

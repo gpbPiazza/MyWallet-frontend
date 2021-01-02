@@ -8,7 +8,7 @@ import AccountService from "../service/AccountService";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { Title, DescriptionArea, Container } from "../styles/UpDateCashStyles";
-import { Forms } from "../styles/SignInStyles";
+import { Forms, TextError } from "../styles/SignInStyles";
 import ModalSuccess from "../components/ModalSuccess";
 import Colors from "../config/colors";
 
@@ -20,21 +20,33 @@ export default function UpdateCash() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [description, setDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState(true);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const body = {
-      value,
+      value: parseFloat(value).toFixed(2),
       description,
       typeTransaction,
     };
 
-    setLoading(!loading);
+    setLoading(true);
     const data = await AccountService.updateBalance(body, user.token);
-    setLoading(!loading);
-    if (data) {
-      setSuccess(true);
+    setLoading(false);
+    if (data?.userId) {
+      return setSuccess(true);
     }
+    if (data.response.status === 401) {
+      setError(true);
+      return setErrorMessage(data.response.data.error);
+    }
+    if (data.response.status === 400) {
+      setError(true);
+      return setErrorMessage(data.response.data.error);
+    }
+    setError(true);
+    return setErrorMessage("Please verify your internet conexation");
   };
 
   return (
@@ -55,6 +67,8 @@ export default function UpdateCash() {
           type="number"
           placeholder="Value"
           value={value}
+          step="0.01"
+          pattern="[0-9]+([\.,][0-9]+)?"
           onChange={(event) => setValue(event.target.value)}
         />
         <DescriptionArea
@@ -72,6 +86,7 @@ export default function UpdateCash() {
         />
       </Forms>
       <ModalSuccess modalIsOpen={success} />
+      {error && <TextError>{errorMessage}</TextError>}
     </ContentContainer>
   );
 }
