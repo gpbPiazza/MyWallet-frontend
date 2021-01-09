@@ -76,7 +76,7 @@ export default function Home() {
       />
       <TransactionBox>
         {loadingTransactions ? (
-          <Spinner transaction />
+          <Spinner transaction style={{ marginTop: "50px" }} />
         ) : (
           transactions.map((transaction, index) => (
             <Transaction

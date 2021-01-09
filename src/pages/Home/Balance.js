@@ -6,7 +6,7 @@ function Balance({ balance }) {
   return (
     <Container>
       <Text>Saldo:</Text>
-      <Value>{`R$ ${balance}`}</Value>
+      <Value>{`$ ${balance}`}</Value>
     </Container>
   );
 }

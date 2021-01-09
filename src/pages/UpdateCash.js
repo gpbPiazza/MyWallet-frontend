@@ -6,11 +6,12 @@ import UserContext from "../context/UserContext";
 import ContentContainer from "../styles/ContentContainer";
 import AccountService from "../service/AccountService";
 import Button from "../components/Button";
-import Input from "../components/Input";
+import mask from "../utils/masks";
 import { Title, DescriptionArea, Container } from "../styles/UpDateCashStyles";
 import { Forms, TextError } from "../styles/SignInStyles";
 import ModalSuccess from "../components/ModalSuccess";
 import Colors from "../config/colors";
+import Input from "../components/Input";
 
 export default function UpdateCash() {
   const { user } = useContext(UserContext);
@@ -23,10 +24,23 @@ export default function UpdateCash() {
   const [errorMessage, setErrorMessage] = useState("");
   const [error, setError] = useState(true);
 
+  const cleanDataValue = () => {
+    const valueWithoutMask = value.replace(/[ ,.]/g, "");
+    const indexPosition = valueWithoutMask.length - 2;
+
+    return `${valueWithoutMask.substring(
+      0,
+      indexPosition
+    )}.${valueWithoutMask.substring(indexPosition)}`;
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
+
+    const valueWithoutMask = cleanDataValue();
+
     const body = {
-      value: parseFloat(value).toFixed(2),
+      value: valueWithoutMask,
       description,
       typeTransaction,
     };
@@ -64,12 +78,10 @@ export default function UpdateCash() {
       </Container>
       <Forms>
         <Input
-          type="number"
           placeholder="Value"
+          type="text"
           value={value}
-          step="0.01"
-          pattern="[0-9]+([\.,][0-9]+)?"
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => setValue(mask(event.target.value))}
         />
         <DescriptionArea
           type="text"
