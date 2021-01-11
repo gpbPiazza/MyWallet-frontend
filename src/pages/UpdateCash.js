@@ -48,6 +48,7 @@ export default function UpdateCash() {
     setLoading(true);
     const data = await AccountService.updateBalance(body, user.token);
     setLoading(false);
+
     if (data?.userId) {
       return setSuccess(true);
     }

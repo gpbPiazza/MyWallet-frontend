@@ -32,8 +32,8 @@ export const Button = styled.button`
 export const TextError = styled.p`
   text-align: center;
 
-  color: ${Colors.darkGrey};
-  border-bottom: 1px solid ${Colors.darkGrey};
+  color: ${Colors.white};
+  border-bottom: 1px solid ${Colors.white};
   font-size: 1rem;
   font-weight: bold;
   font-family: ${Typography.RalewatRaleway};
