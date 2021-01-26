@@ -43,7 +43,8 @@ export default function Home() {
   const getBalance = async () => {
     const data = await AccountService.getBalance(user.token);
     if (data) {
-      const formatBalance = parseInt(data.balance, 10).toFixed(2);
+      const formatBalance = parseFloat(data.balance, 10).toFixed(2);
+
       setBalance(formatBalance);
     }
   };
