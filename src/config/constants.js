@@ -8,4 +8,4 @@ const API_URL = PRODUCTION ? API_PROD_URL : API_DEV_URL;
 
 export default API_URL;
 
-export const MEDIA = "@media (min-width: 600px)";
+export const MEDIA_MIN = "@media (min-width: 600px)";

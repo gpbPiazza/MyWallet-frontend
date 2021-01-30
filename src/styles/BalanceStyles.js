@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "../config/colors";
-import { MEDIA } from "../config/constants";
+import { MEDIA_MIN } from "../config/constants";
 import Typography from "../config/typography";
 
 export const Container = styled.div`
@@ -18,7 +18,7 @@ export const Container = styled.div`
 
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  ${MEDIA} {
+  ${MEDIA_MIN} {
     padding: 1% 2%;
   }
 `;

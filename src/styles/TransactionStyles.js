@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "../config/colors";
-import { MEDIA } from "../config/constants";
+import { MEDIA_MIN } from "../config/constants";
 import Typography from "../config/typography";
 
 export const Container = styled.li`
@@ -14,7 +14,7 @@ export const Container = styled.li`
 
   padding: 2% 5%;
 
-  ${MEDIA} {
+  ${MEDIA_MIN} {
     padding: 1% 2%;
   }
 `;
@@ -28,7 +28,7 @@ export const Date = styled.p`
 
   margin-right: 3%;
 
-  ${MEDIA} {
+  ${MEDIA_MIN} {
     margin-right: 1%;
   }
 `;

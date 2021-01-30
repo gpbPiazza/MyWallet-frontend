@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Colors from "../config/colors";
-import { MEDIA } from "../config/constants";
+import { MEDIA_MIN } from "../config/constants";
 
 export const TransactionBox = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ export const TransactionBox = styled.div`
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 
-  ${MEDIA} {
+  ${MEDIA_MIN} {
     margin-top: 2%;
   }
 `;
@@ -35,9 +35,7 @@ export const ButtonContainer = styled.div`
 
   margin-top: 10%;
 
-  ${MEDIA} {
+  ${MEDIA_MIN} {
     margin-top: 2%;
-
-    justify-content: flex-start;
   }
 `;

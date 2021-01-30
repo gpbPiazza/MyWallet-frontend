@@ -1,8 +1,20 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import Colors from "../../config/colors";
 
 const GlobalStyle = createGlobalStyle`
     * {
         box-sizing:border-box;
+    }
+
+    body {
+      background-color: ${Colors.purple};
+      width: 100%;
+    }
+
+    #root {
+      justify-content: center;
+      width: 100%;
+      display: flex;
     }
 
     a {

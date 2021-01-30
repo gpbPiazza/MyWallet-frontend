@@ -8,6 +8,7 @@ const ContentContainer = styled.main`
   flex-direction: column;
 
   width: 100%;
+  max-width: 800px;
   height: 100vh;
 
   background-color: ${Colors.purple};
