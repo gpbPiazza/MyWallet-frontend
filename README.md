@@ -6,7 +6,7 @@
 
 ## Objective
 <p>
-   The project MyWallet was developed throughout the Bootcamp of "Respode Aí". This project its a full stack aplication and has the object to register, log in and check his MyWallet account balance and show transaction history.
+   The project MyWallet was developed throughout the Bootcamp of "Respode Aí". This project is a full stack application and has the objective to register, log in and check his MyWallet account balance and show transaction history.
 </p>
 
 ### Features
